@@ -13,24 +13,26 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlType;
+import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
+import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- *  Tipo da NF-e processada
+ * Tipo Pedido de inutilzação de númeração de  NF-e processado
  * 
- * <p>Java class for TNfeProc complex type.
+ * <p>Java class for TProcInutNFe complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TNfeProc"&gt;
+ * &lt;complexType name="TProcInutNFe"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="NFe" type="{http://www.portalfiscal.inf.br/nfe}TNFe"/&gt;
- *         &lt;element name="protNFe" type="{http://www.portalfiscal.inf.br/nfe}TProtNFe"/&gt;
+ *         &lt;element name="inutNFe" type="{http://www.portalfiscal.inf.br/nfe}TInutNFe"/&gt;
+ *         &lt;element name="retInutNFe" type="{http://www.portalfiscal.inf.br/nfe}TRetInutNFe"/&gt;
  *       &lt;/sequence&gt;
- *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/nfe}TVerNFe" /&gt;
+ *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/nfe}TVerInutNFe" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -39,65 +41,66 @@ import jakarta.xml.bind.annotation.XmlType;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TNfeProc", propOrder = {
-    "nFe",
-    "protNFe"
+@XmlType(name = "TProcInutNFe", propOrder = {
+    "inutNFe",
+    "retInutNFe"
 })
-public class TNfeProc {
+public class TProcInutNFe {
 
-    @XmlElement(name = "NFe", required = true)
-    protected TNFe nFe;
     @XmlElement(required = true)
-    protected TProtNFe protNFe;
+    protected TInutNFe inutNFe;
+    @XmlElement(required = true)
+    protected TRetInutNFe retInutNFe;
     @XmlAttribute(name = "versao", required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String versao;
 
     /**
-     * Gets the value of the nFe property.
+     * Gets the value of the inutNFe property.
      * 
      * @return
      *     possible object is
-     *     {@link TNFe }
+     *     {@link TInutNFe }
      *     
      */
-    public TNFe getNFe() {
-        return nFe;
+    public TInutNFe getInutNFe() {
+        return inutNFe;
     }
 
     /**
-     * Sets the value of the nFe property.
+     * Sets the value of the inutNFe property.
      * 
      * @param value
      *     allowed object is
-     *     {@link TNFe }
+     *     {@link TInutNFe }
      *     
      */
-    public void setNFe(TNFe value) {
-        this.nFe = value;
+    public void setInutNFe(TInutNFe value) {
+        this.inutNFe = value;
     }
 
     /**
-     * Gets the value of the protNFe property.
+     * Gets the value of the retInutNFe property.
      * 
      * @return
      *     possible object is
-     *     {@link TProtNFe }
+     *     {@link TRetInutNFe }
      *     
      */
-    public TProtNFe getProtNFe() {
-        return protNFe;
+    public TRetInutNFe getRetInutNFe() {
+        return retInutNFe;
     }
 
     /**
-     * Sets the value of the protNFe property.
+     * Sets the value of the retInutNFe property.
      * 
      * @param value
      *     allowed object is
-     *     {@link TProtNFe }
+     *     {@link TRetInutNFe }
      *     
      */
-    public void setProtNFe(TProtNFe value) {
-        this.protNFe = value;
+    public void setRetInutNFe(TRetInutNFe value) {
+        this.retInutNFe = value;
     }
 
     /**

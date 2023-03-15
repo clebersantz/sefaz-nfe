@@ -13,64 +13,59 @@ import jakarta.xml.bind.annotation.XmlAccessorType;
 import jakarta.xml.bind.annotation.XmlAttribute;
 import jakarta.xml.bind.annotation.XmlElement;
 import jakarta.xml.bind.annotation.XmlID;
-import jakarta.xml.bind.annotation.XmlSchemaType;
 import jakarta.xml.bind.annotation.XmlType;
 import jakarta.xml.bind.annotation.adapters.CollapsedStringAdapter;
 import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
 
 
 /**
- * Tipo Protocolo de status resultado do processamento da NF-e
+ * Tipo Pedido de Inutilização de Numeração da Nota Fiscal Eletrônica
  * 
- * <p>Java class for TProtNFe complex type.
+ * <p>Java class for TInutNFe complex type.
  * 
  * <p>The following schema fragment specifies the expected content contained within this class.
  * 
  * <pre>
- * &lt;complexType name="TProtNFe"&gt;
+ * &lt;complexType name="TInutNFe"&gt;
  *   &lt;complexContent&gt;
  *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *       &lt;sequence&gt;
- *         &lt;element name="infProt"&gt;
+ *         &lt;element name="infInut"&gt;
  *           &lt;complexType&gt;
  *             &lt;complexContent&gt;
  *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
  *                 &lt;sequence&gt;
  *                   &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/nfe}TAmb"/&gt;
- *                   &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/nfe}TVerAplic"/&gt;
- *                   &lt;element name="chNFe" type="{http://www.portalfiscal.inf.br/nfe}TChNFe"/&gt;
- *                   &lt;element name="dhRecbto" type="{http://www.portalfiscal.inf.br/nfe}TDateTimeUTC"/&gt;
- *                   &lt;element name="nProt" type="{http://www.portalfiscal.inf.br/nfe}TProt" minOccurs="0"/&gt;
- *                   &lt;element name="digVal" type="{http://www.w3.org/2000/09/xmldsig#}DigestValueType" minOccurs="0"/&gt;
- *                   &lt;element name="cStat" type="{http://www.portalfiscal.inf.br/nfe}TStat"/&gt;
- *                   &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/nfe}TMotivo"/&gt;
- *                   &lt;sequence minOccurs="0"&gt;
- *                     &lt;element name="cMsg"&gt;
- *                       &lt;simpleType&gt;
- *                         &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
- *                           &lt;whiteSpace value="preserve"/&gt;
- *                           &lt;pattern value="[0-9]{1,4}"/&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/simpleType&gt;
- *                     &lt;/element&gt;
- *                     &lt;element name="xMsg"&gt;
- *                       &lt;simpleType&gt;
- *                         &lt;restriction base="{http://www.portalfiscal.inf.br/nfe}TString"&gt;
- *                           &lt;minLength value="1"/&gt;
- *                           &lt;maxLength value="200"/&gt;
- *                         &lt;/restriction&gt;
- *                       &lt;/simpleType&gt;
- *                     &lt;/element&gt;
- *                   &lt;/sequence&gt;
+ *                   &lt;element name="xServ"&gt;
+ *                     &lt;simpleType&gt;
+ *                       &lt;restriction base="{http://www.portalfiscal.inf.br/nfe}TServ"&gt;
+ *                         &lt;enumeration value="INUTILIZAR"/&gt;
+ *                       &lt;/restriction&gt;
+ *                     &lt;/simpleType&gt;
+ *                   &lt;/element&gt;
+ *                   &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/nfe}TCodUfIBGE"/&gt;
+ *                   &lt;element name="ano" type="{http://www.portalfiscal.inf.br/nfe}Tano"/&gt;
+ *                   &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/nfe}TCnpj"/&gt;
+ *                   &lt;element name="mod" type="{http://www.portalfiscal.inf.br/nfe}TMod"/&gt;
+ *                   &lt;element name="serie" type="{http://www.portalfiscal.inf.br/nfe}TSerie"/&gt;
+ *                   &lt;element name="nNFIni" type="{http://www.portalfiscal.inf.br/nfe}TNF"/&gt;
+ *                   &lt;element name="nNFFin" type="{http://www.portalfiscal.inf.br/nfe}TNF"/&gt;
+ *                   &lt;element name="xJust" type="{http://www.portalfiscal.inf.br/nfe}TJust"/&gt;
  *                 &lt;/sequence&gt;
- *                 &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
+ *                 &lt;attribute name="Id" use="required"&gt;
+ *                   &lt;simpleType&gt;
+ *                     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID"&gt;
+ *                       &lt;pattern value="ID[0-9]{41}"/&gt;
+ *                     &lt;/restriction&gt;
+ *                   &lt;/simpleType&gt;
+ *                 &lt;/attribute&gt;
  *               &lt;/restriction&gt;
  *             &lt;/complexContent&gt;
  *           &lt;/complexType&gt;
  *         &lt;/element&gt;
- *         &lt;element ref="{http://www.w3.org/2000/09/xmldsig#}Signature" minOccurs="0"/&gt;
+ *         &lt;element ref="{http://www.w3.org/2000/09/xmldsig#}Signature"/&gt;
  *       &lt;/sequence&gt;
- *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/nfe}TVerNFe" /&gt;
+ *       &lt;attribute name="versao" use="required" type="{http://www.portalfiscal.inf.br/nfe}TVerInutNFe" /&gt;
  *     &lt;/restriction&gt;
  *   &lt;/complexContent&gt;
  * &lt;/complexType&gt;
@@ -79,41 +74,42 @@ import jakarta.xml.bind.annotation.adapters.XmlJavaTypeAdapter;
  * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlType(name = "TProtNFe", propOrder = {
-    "infProt",
+@XmlType(name = "TInutNFe", propOrder = {
+    "infInut",
     "signature"
 })
-public class TProtNFe {
+public class TInutNFe {
 
     @XmlElement(required = true)
-    protected TProtNFe.InfProt infProt;
-    @XmlElement(name = "Signature", namespace = "http://www.w3.org/2000/09/xmldsig#")
+    protected TInutNFe.InfInut infInut;
+    @XmlElement(name = "Signature", namespace = "http://www.w3.org/2000/09/xmldsig#", required = true)
     protected SignatureType signature;
     @XmlAttribute(name = "versao", required = true)
+    @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
     protected String versao;
 
     /**
-     * Gets the value of the infProt property.
+     * Gets the value of the infInut property.
      * 
      * @return
      *     possible object is
-     *     {@link TProtNFe.InfProt }
+     *     {@link TInutNFe.InfInut }
      *     
      */
-    public TProtNFe.InfProt getInfProt() {
-        return infProt;
+    public TInutNFe.InfInut getInfInut() {
+        return infInut;
     }
 
     /**
-     * Sets the value of the infProt property.
+     * Sets the value of the infInut property.
      * 
      * @param value
      *     allowed object is
-     *     {@link TProtNFe.InfProt }
+     *     {@link TInutNFe.InfInut }
      *     
      */
-    public void setInfProt(TProtNFe.InfProt value) {
-        this.infProt = value;
+    public void setInfInut(TInutNFe.InfInut value) {
+        this.infInut = value;
     }
 
     /**
@@ -176,33 +172,29 @@ public class TProtNFe {
      *     &lt;restriction base="{http://www.w3.org/2001/XMLSchema}anyType"&gt;
      *       &lt;sequence&gt;
      *         &lt;element name="tpAmb" type="{http://www.portalfiscal.inf.br/nfe}TAmb"/&gt;
-     *         &lt;element name="verAplic" type="{http://www.portalfiscal.inf.br/nfe}TVerAplic"/&gt;
-     *         &lt;element name="chNFe" type="{http://www.portalfiscal.inf.br/nfe}TChNFe"/&gt;
-     *         &lt;element name="dhRecbto" type="{http://www.portalfiscal.inf.br/nfe}TDateTimeUTC"/&gt;
-     *         &lt;element name="nProt" type="{http://www.portalfiscal.inf.br/nfe}TProt" minOccurs="0"/&gt;
-     *         &lt;element name="digVal" type="{http://www.w3.org/2000/09/xmldsig#}DigestValueType" minOccurs="0"/&gt;
-     *         &lt;element name="cStat" type="{http://www.portalfiscal.inf.br/nfe}TStat"/&gt;
-     *         &lt;element name="xMotivo" type="{http://www.portalfiscal.inf.br/nfe}TMotivo"/&gt;
-     *         &lt;sequence minOccurs="0"&gt;
-     *           &lt;element name="cMsg"&gt;
-     *             &lt;simpleType&gt;
-     *               &lt;restriction base="{http://www.w3.org/2001/XMLSchema}string"&gt;
-     *                 &lt;whiteSpace value="preserve"/&gt;
-     *                 &lt;pattern value="[0-9]{1,4}"/&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/simpleType&gt;
-     *           &lt;/element&gt;
-     *           &lt;element name="xMsg"&gt;
-     *             &lt;simpleType&gt;
-     *               &lt;restriction base="{http://www.portalfiscal.inf.br/nfe}TString"&gt;
-     *                 &lt;minLength value="1"/&gt;
-     *                 &lt;maxLength value="200"/&gt;
-     *               &lt;/restriction&gt;
-     *             &lt;/simpleType&gt;
-     *           &lt;/element&gt;
-     *         &lt;/sequence&gt;
+     *         &lt;element name="xServ"&gt;
+     *           &lt;simpleType&gt;
+     *             &lt;restriction base="{http://www.portalfiscal.inf.br/nfe}TServ"&gt;
+     *               &lt;enumeration value="INUTILIZAR"/&gt;
+     *             &lt;/restriction&gt;
+     *           &lt;/simpleType&gt;
+     *         &lt;/element&gt;
+     *         &lt;element name="cUF" type="{http://www.portalfiscal.inf.br/nfe}TCodUfIBGE"/&gt;
+     *         &lt;element name="ano" type="{http://www.portalfiscal.inf.br/nfe}Tano"/&gt;
+     *         &lt;element name="CNPJ" type="{http://www.portalfiscal.inf.br/nfe}TCnpj"/&gt;
+     *         &lt;element name="mod" type="{http://www.portalfiscal.inf.br/nfe}TMod"/&gt;
+     *         &lt;element name="serie" type="{http://www.portalfiscal.inf.br/nfe}TSerie"/&gt;
+     *         &lt;element name="nNFIni" type="{http://www.portalfiscal.inf.br/nfe}TNF"/&gt;
+     *         &lt;element name="nNFFin" type="{http://www.portalfiscal.inf.br/nfe}TNF"/&gt;
+     *         &lt;element name="xJust" type="{http://www.portalfiscal.inf.br/nfe}TJust"/&gt;
      *       &lt;/sequence&gt;
-     *       &lt;attribute name="Id" type="{http://www.w3.org/2001/XMLSchema}ID" /&gt;
+     *       &lt;attribute name="Id" use="required"&gt;
+     *         &lt;simpleType&gt;
+     *           &lt;restriction base="{http://www.w3.org/2001/XMLSchema}ID"&gt;
+     *             &lt;pattern value="ID[0-9]{41}"/&gt;
+     *           &lt;/restriction&gt;
+     *         &lt;/simpleType&gt;
+     *       &lt;/attribute&gt;
      *     &lt;/restriction&gt;
      *   &lt;/complexContent&gt;
      * &lt;/complexType&gt;
@@ -213,38 +205,41 @@ public class TProtNFe {
     @XmlAccessorType(XmlAccessType.FIELD)
     @XmlType(name = "", propOrder = {
         "tpAmb",
-        "verAplic",
-        "chNFe",
-        "dhRecbto",
-        "nProt",
-        "digVal",
-        "cStat",
-        "xMotivo",
-        "cMsg",
-        "xMsg"
+        "xServ",
+        "cuf",
+        "ano",
+        "cnpj",
+        "mod",
+        "serie",
+        "nnfIni",
+        "nnfFin",
+        "xJust"
     })
-    public static class InfProt {
+    public static class InfInut {
 
         @XmlElement(required = true)
         protected String tpAmb;
         @XmlElement(required = true)
-        protected String verAplic;
+        protected String xServ;
+        @XmlElement(name = "cUF", required = true)
+        protected String cuf;
         @XmlElement(required = true)
-        protected String chNFe;
+        protected String ano;
+        @XmlElement(name = "CNPJ", required = true)
+        protected String cnpj;
         @XmlElement(required = true)
-        protected String dhRecbto;
-        protected String nProt;
-        protected byte[] digVal;
+        protected String mod;
         @XmlElement(required = true)
-        protected String cStat;
+        protected String serie;
+        @XmlElement(name = "nNFIni", required = true)
+        protected String nnfIni;
+        @XmlElement(name = "nNFFin", required = true)
+        protected String nnfFin;
         @XmlElement(required = true)
-        protected String xMotivo;
-        protected String cMsg;
-        protected String xMsg;
-        @XmlAttribute(name = "Id")
+        protected String xJust;
+        @XmlAttribute(name = "Id", required = true)
         @XmlJavaTypeAdapter(CollapsedStringAdapter.class)
         @XmlID
-        @XmlSchemaType(name = "ID")
         protected String id;
 
         /**
@@ -272,217 +267,219 @@ public class TProtNFe {
         }
 
         /**
-         * Gets the value of the verAplic property.
+         * Gets the value of the xServ property.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getVerAplic() {
-            return verAplic;
+        public String getXServ() {
+            return xServ;
         }
 
         /**
-         * Sets the value of the verAplic property.
+         * Sets the value of the xServ property.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setVerAplic(String value) {
-            this.verAplic = value;
+        public void setXServ(String value) {
+            this.xServ = value;
         }
 
         /**
-         * Gets the value of the chNFe property.
+         * Gets the value of the cuf property.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getChNFe() {
-            return chNFe;
+        public String getCUF() {
+            return cuf;
         }
 
         /**
-         * Sets the value of the chNFe property.
+         * Sets the value of the cuf property.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setChNFe(String value) {
-            this.chNFe = value;
+        public void setCUF(String value) {
+            this.cuf = value;
         }
 
         /**
-         * Gets the value of the dhRecbto property.
+         * Gets the value of the ano property.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getDhRecbto() {
-            return dhRecbto;
+        public String getAno() {
+            return ano;
         }
 
         /**
-         * Sets the value of the dhRecbto property.
+         * Sets the value of the ano property.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setDhRecbto(String value) {
-            this.dhRecbto = value;
+        public void setAno(String value) {
+            this.ano = value;
         }
 
         /**
-         * Gets the value of the nProt property.
+         * Gets the value of the cnpj property.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getNProt() {
-            return nProt;
+        public String getCNPJ() {
+            return cnpj;
         }
 
         /**
-         * Sets the value of the nProt property.
+         * Sets the value of the cnpj property.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setNProt(String value) {
-            this.nProt = value;
+        public void setCNPJ(String value) {
+            this.cnpj = value;
         }
 
         /**
-         * Gets the value of the digVal property.
-         * 
-         * @return
-         *     possible object is
-         *     byte[]
-         */
-        public byte[] getDigVal() {
-            return digVal;
-        }
-
-        /**
-         * Sets the value of the digVal property.
-         * 
-         * @param value
-         *     allowed object is
-         *     byte[]
-         */
-        public void setDigVal(byte[] value) {
-            this.digVal = value;
-        }
-
-        /**
-         * Gets the value of the cStat property.
+         * Gets the value of the mod property.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getCStat() {
-            return cStat;
+        public String getMod() {
+            return mod;
         }
 
         /**
-         * Sets the value of the cStat property.
+         * Sets the value of the mod property.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setCStat(String value) {
-            this.cStat = value;
+        public void setMod(String value) {
+            this.mod = value;
         }
 
         /**
-         * Gets the value of the xMotivo property.
+         * Gets the value of the serie property.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getXMotivo() {
-            return xMotivo;
+        public String getSerie() {
+            return serie;
         }
 
         /**
-         * Sets the value of the xMotivo property.
+         * Sets the value of the serie property.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setXMotivo(String value) {
-            this.xMotivo = value;
+        public void setSerie(String value) {
+            this.serie = value;
         }
 
         /**
-         * Gets the value of the cMsg property.
+         * Gets the value of the nnfIni property.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getCMsg() {
-            return cMsg;
+        public String getNNFIni() {
+            return nnfIni;
         }
 
         /**
-         * Sets the value of the cMsg property.
+         * Sets the value of the nnfIni property.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setCMsg(String value) {
-            this.cMsg = value;
+        public void setNNFIni(String value) {
+            this.nnfIni = value;
         }
 
         /**
-         * Gets the value of the xMsg property.
+         * Gets the value of the nnfFin property.
          * 
          * @return
          *     possible object is
          *     {@link String }
          *     
          */
-        public String getXMsg() {
-            return xMsg;
+        public String getNNFFin() {
+            return nnfFin;
         }
 
         /**
-         * Sets the value of the xMsg property.
+         * Sets the value of the nnfFin property.
          * 
          * @param value
          *     allowed object is
          *     {@link String }
          *     
          */
-        public void setXMsg(String value) {
-            this.xMsg = value;
+        public void setNNFFin(String value) {
+            this.nnfFin = value;
+        }
+
+        /**
+         * Gets the value of the xJust property.
+         * 
+         * @return
+         *     possible object is
+         *     {@link String }
+         *     
+         */
+        public String getXJust() {
+            return xJust;
+        }
+
+        /**
+         * Sets the value of the xJust property.
+         * 
+         * @param value
+         *     allowed object is
+         *     {@link String }
+         *     
+         */
+        public void setXJust(String value) {
+            this.xJust = value;
         }
 
         /**
