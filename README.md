@@ -1,6 +1,12 @@
 # sefaz-nfe
 Java JAXB2 generate files for communication with SEFAZ NF-e
 
+Create JAXB2 Objects for SEFAZ NF-e v4.00 WebService:
+* enviNFe
+* inutNFe
+* nfe
+* StatServ
+
 # Versões
 
 * PL_009-v5a  implementado alterações da NT  
