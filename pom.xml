@@ -49,22 +49,53 @@
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>jaxb2-maven-plugin</artifactId>
                 <version>3.1.0</version>
-                <executions>
-                    <execution>
-                        <id>xjc</id>
-                        <goals>
-                            <goal>xjc</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <sources>
-                        <source>${project.basedir}/src/main/resources/xsd/nfe</source>
-                    </sources>
-                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                    <packageName>br.santz.sefaz.nfe</packageName>
-                    <clearOutputDir>false</clearOutputDir>
-                </configuration>
+
+			    <executions>
+			        <execution>
+			            <id>xjc-nfe</id>
+			            <goals>
+			                <goal>xjc</goal>
+			            </goals>
+			            <configuration>
+			                <!-- Use all XSDs under the west directory for sources here. -->
+			                <sources>
+			                    <source>src/main/resources/xsd/nfe</source>
+			                </sources>
+			
+			                <!-- Package name of the generated sources. -->
+			                <packageName>br.santz.sefaz.nfe</packageName>
+			                
+			                <locale>en</locale>
+			                
+			            </configuration>
+			        </execution>
+			        
+			        <execution>
+			            <id>xjc-statserv</id>
+			            <goals>
+			                <goal>xjc</goal>
+			            </goals>
+			            <configuration>
+			                <!-- Use all XSDs under the east directory for sources here. -->
+			                <sources>
+			                    <source>src/main/resources/xsd/statserv</source>
+			                </sources>
+			
+			                <!-- Package name of the generated sources. -->
+			                <packageName>br.santz.sefaz.statserv</packageName>
+			
+			                <!--
+			                    Don't clear the output directory before generating the sources.
+			                    Clearing the output directory removes the se.west schema from above.
+			                -->
+			                <clearOutputDir>false</clearOutputDir>
+			                
+			                <locale>en</locale>
+			                
+			            </configuration>
+			        </execution>
+			    </executions>
+                    
             </plugin>
         </plugins>
     </build>
